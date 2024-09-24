@@ -138,19 +138,19 @@ TextureImporter:
       name: GhostBlue_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 41
-        width: 15
-        height: 15
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f4f8d8d7d983530f0800000000000000
-      internalID: -1137941081773732017
+      spriteID: 012405683070ef14e90babff1818e4b7
+      internalID: 1269821332
       vertices: []
       indices: 
       edges: []
@@ -159,19 +159,19 @@ TextureImporter:
       name: GhostBlue_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 41
-        width: 15
-        height: 15
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 488dbb85bfa25f5c0800000000000000
-      internalID: -4182389419929773948
+      spriteID: d69a1de013a19ef4d80a9e02ab1caa2d
+      internalID: -1097874325
       vertices: []
       indices: 
       edges: []
@@ -180,19 +180,19 @@ TextureImporter:
       name: GhostBlue_2
       rect:
         serializedVersion: 2
-        x: 9
-        y: 9
-        width: 15
-        height: 15
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cad364c4a509cbb70800000000000000
-      internalID: 8916160079787867564
+      spriteID: 0fee326e5a6b9784fb62032b57943498
+      internalID: 492246947
       vertices: []
       indices: 
       edges: []
@@ -201,19 +201,19 @@ TextureImporter:
       name: GhostBlue_3
       rect:
         serializedVersion: 2
-        x: 41
-        y: 9
-        width: 15
-        height: 15
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: efd10493c4d6c64b0800000000000000
-      internalID: -5445857675252326914
+      spriteID: 98cbb46ecbb9b2c468223a25d21d867a
+      internalID: -774684102
       vertices: []
       indices: 
       edges: []
@@ -221,14 +221,18 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5da76f629e2871f4fb7a500bd6863c14
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GhostBlue_0: 1269821332
+      GhostBlue_1: -1097874325
+      GhostBlue_2: 492246947
+      GhostBlue_3: -774684102
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,19 +147,19 @@ TextureImporter:
       name: PacDeath_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 70
-        width: 19
-        height: 19
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3b920d72dc6e49bb0800000000000000
-      internalID: -4930061923253212749
+      spriteID: 664d4b16570b6a84c9fe83e8a1aa8caa
+      internalID: -590321347
       vertices: []
       indices: 
       edges: []
@@ -168,19 +168,19 @@ TextureImporter:
       name: PacDeath_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 70
-        width: 19
-        height: 18
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 10693b6dafc9b1d20800000000000000
-      internalID: 3250364157235795457
+      spriteID: 76736633b9f5fb04eb9dbb1d2e893315
+      internalID: -1378011804
       vertices: []
       indices: 
       edges: []
@@ -189,19 +189,19 @@ TextureImporter:
       name: PacDeath_2
       rect:
         serializedVersion: 2
-        x: 6
-        y: 38
-        width: 19
-        height: 16
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fa7a7b0cefcc25f90800000000000000
-      internalID: -6966280279061715025
+      spriteID: 6bb7b5dd816ed1b41871fa74538436cb
+      internalID: -849603050
       vertices: []
       indices: 
       edges: []
@@ -210,19 +210,19 @@ TextureImporter:
       name: PacDeath_3
       rect:
         serializedVersion: 2
-        x: 38
-        y: 39
-        width: 9
-        height: 9
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9fabddaf321db6c40800000000000000
-      internalID: 5506724921853459193
+      spriteID: 1378c63d932497b4fb6e706e089a60f2
+      internalID: 1589673167
       vertices: []
       indices: 
       edges: []
@@ -231,61 +231,19 @@ TextureImporter:
       name: PacDeath_4
       rect:
         serializedVersion: 2
-        x: 46
-        y: 40
-        width: 6
-        height: 10
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 21bf0597aa9d7ee60800000000000000
-      internalID: 7991595389995252498
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PacDeath_5
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 38
-        width: 10
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0db21a8c9b31f9ba0800000000000000
-      internalID: -6080119283270997040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PacDeath_6
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 6
-        width: 25
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b83bd2a0a39561860800000000000000
-      internalID: 7500280335245882251
+      spriteID: e569e23923b5b714aa22c5202e1d73dc
+      internalID: -1392158060
       vertices: []
       indices: 
       edges: []
@@ -293,14 +251,19 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 35a65058994331f4b8d39754096840fe
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PacDeath_0: -590321347
+      PacDeath_1: -1378011804
+      PacDeath_2: -849603050
+      PacDeath_3: 1589673167
+      PacDeath_4: -1392158060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
