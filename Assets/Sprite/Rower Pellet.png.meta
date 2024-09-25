@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rower Pellet_0: -1036176799342075098
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
