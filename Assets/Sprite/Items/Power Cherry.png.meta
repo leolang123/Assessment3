@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Power Cherry_0: 2054898377710155198
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

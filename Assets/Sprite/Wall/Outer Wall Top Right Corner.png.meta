@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Outer Wall Top Right Corner_0: -2826832030670898283
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

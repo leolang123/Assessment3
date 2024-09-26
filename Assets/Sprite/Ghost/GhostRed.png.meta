@@ -228,7 +228,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GhostRed_0: 8719965121614041626
+      GhostRed_1: -1267912965877497926
+      GhostRed_2: -7805264735449056468
+      GhostRed_3: 3105510017753157650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
