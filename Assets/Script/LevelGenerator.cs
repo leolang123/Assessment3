@@ -118,32 +118,104 @@ public class LevelGenerator : MonoBehaviour
         return Quaternion.identity;
     }
 
-
     Quaternion GetInsideCornerRotation(int x, int y)
     {
-        // Similar logic for inside corners
-        if (!IsWall(x, y - 1) && !IsWall(x - 1, y))
-            return Quaternion.Euler(0, 0, 0); // Top-left corner
-        else if (!IsWall(x, y - 1) && !IsWall(x + 1, y))
-            return Quaternion.Euler(0, 0, -90); // Top-right corner
-        else if (!IsWall(x, y + 1) && !IsWall(x - 1, y))
-            return Quaternion.Euler(0, 0, 90); // Bottom-left corner
-        else if (!IsWall(x, y + 1) && !IsWall(x + 1, y))
-            return Quaternion.Euler(0, 0, 180); // Bottom-right corner
+        // Check neighbors to determine which corner type
+        bool hasLeft = IsWall(x - 1, y);
+        bool hasRight = IsWall(x + 1, y);
+        bool hasTop = IsWall(x, y - 1);
+        bool hasBottom = IsWall(x, y + 1);
 
+        // Top-left inside corner
+        if (!hasTop && !hasLeft && hasRight && hasBottom)
+            return Quaternion.Euler(0, 0, 0); // Top-left inside corner
+
+        // Top-right inside corner
+        if (!hasTop && !hasRight && hasLeft && hasBottom)
+            return Quaternion.Euler(0, 0, -90); // Top-right inside corner
+
+        // Bottom-left inside corner
+        if (!hasBottom && !hasLeft && hasRight && hasTop)
+            return Quaternion.Euler(0, 0, 90); // Bottom-left inside corner
+
+        // Bottom-right inside corner
+        if (!hasBottom && !hasRight && hasLeft && hasTop)
+            return Quaternion.Euler(0, 0, 180); // Bottom-right inside corner
+
+        // Handle fully surrounded case
+        if (hasLeft && hasRight && hasTop && hasBottom)
+        {
+            // Determine which wall to align with by checking diagonal neighbors
+            bool hasLeftTop = IsWall(x - 1, y - 1);
+            bool hasRightTop = IsWall(x + 1, y - 1);
+            bool hasLeftBottom = IsWall(x - 1, y + 1);
+            bool hasRightBottom = IsWall(x + 1, y + 1);
+
+            // Align based on diagonal neighbors to choose the correct rotation
+            if (hasLeft && hasTop && !hasRightBottom)
+                return Quaternion.Euler(0, 0, 0); // Align with top-left
+            else if (hasRight && hasTop && !hasLeftBottom)
+                return Quaternion.Euler(0, 0, -90); // Align with top-right
+            else if (hasLeft && hasBottom && !hasRightTop)
+                return Quaternion.Euler(0, 0, 90); // Align with bottom-left
+            else if (hasRight && hasBottom && !hasLeftTop)
+                return Quaternion.Euler(0, 0, 180); // Align with bottom-right
+        }
+
+        // Handle vertical/horizontal wall-like corners
+        if (hasTop && hasBottom && !hasLeft && !hasRight)
+            return Quaternion.Euler(0, 0, 90); // Vertical-like inside corner
+
+        if (hasLeft && hasRight && !hasTop && !hasBottom)
+            return Quaternion.identity; // Horizontal-like inside corner
+
+        // Fallback rotation
         return Quaternion.identity;
     }
+
 
     Quaternion GetWallRotation(int x, int y)
     {
-        // Determine if wall is horizontal or vertical
-        if (IsWall(x - 1, y) || IsWall(x + 1, y))
+        // Determine neighboring walls
+        bool hasLeft = IsWall(x - 1, y);
+        bool hasRight = IsWall(x + 1, y);
+        bool hasTop = IsWall(x, y - 1);
+        bool hasBottom = IsWall(x, y + 1);
+
+        // Check if top or bottom is a vertical wall specifically
+        bool isVerticalWallAbove = IsSpecificVerticalWall(x, y - 1);
+        bool isVerticalWallBelow = IsSpecificVerticalWall(x, y + 1);
+
+        // Special check for corners
+        bool isTopLeftCornerAbove = (x > 0 && y > 0 && levelMap[y - 1, x - 1] == 1); // Check if the top-left corner is above
+
+        // Correctly detect horizontal walls first (higher priority)
+        if ((hasLeft && hasRight) || (!hasTop && !hasBottom))
             return Quaternion.identity; // Horizontal wall
-        else if (IsWall(x, y - 1) || IsWall(x, y + 1))
+
+        // Then detect vertical walls
+        if ((hasTop && hasBottom) || isVerticalWallAbove || isVerticalWallBelow || isTopLeftCornerAbove)
             return Quaternion.Euler(0, 0, 90); // Vertical wall
 
+        // Default case: if no clear orientation, assume horizontal
         return Quaternion.identity;
     }
+
+
+
+    bool IsSpecificVerticalWall(int x, int y)
+    {
+        // Check if the tile is a vertical wall
+        if (x < 0 || y < 0 || x >= levelMap.GetLength(1) || y >= levelMap.GetLength(0))
+            return false; // Out of bounds
+
+        int tile = levelMap[y, x];
+
+        // If the tile is part of the wall and specifically a vertical wall
+        return (tile == 2 || tile == 4);
+    }
+
+
 
     Quaternion GetTJunctionRotation(int x, int y)
     {
