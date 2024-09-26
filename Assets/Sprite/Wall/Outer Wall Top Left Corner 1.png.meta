@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3a53c1c9942e2f44287486f717eec48c
+guid: 78248f9469a691b4392b18385a9a3de6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6633578500989908687
-    second: Top Left Corner_0
+      213: -6900463499486440280
+    second: Outer Wall Top Left Corner 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Top Left Corner_0
+      name: Outer Wall Top Left Corner 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc6fb2d10843f0c50800000000000000
-      internalID: 6633578500989908687
+      spriteID: 8a4df87e101ac30a0800000000000000
+      internalID: -6900463499486440280
       vertices: []
       indices: 
       edges: []
@@ -156,8 +156,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Top Left Corner_0: 6633578500989908687
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

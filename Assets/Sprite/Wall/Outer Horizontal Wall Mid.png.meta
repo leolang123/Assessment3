@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9d183678e4befe4da79b792fe6856e7
+guid: 2632f80771d4f3243829e989ae3f1d14
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 436135790463253198
-    second: Outer Horizontal Wall Mid_0
+      213: 672616023976271019
+    second: Outer Horizontal Wall Mid (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Outer Horizontal Wall Mid_0
+      name: Outer Horizontal Wall Mid (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eca7560d0377d0600800000000000000
-      internalID: 436135790463253198
+      spriteID: bac575bc5bc955900800000000000000
+      internalID: 672616023976271019
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Outer Horizontal Wall Mid_0: 436135790463253198
+      Outer Horizontal Wall Mid (1)_0: 672616023976271019
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
