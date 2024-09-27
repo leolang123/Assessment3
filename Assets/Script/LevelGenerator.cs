@@ -259,14 +259,17 @@ public class LevelGenerator : MonoBehaviour
     }
 
     // Check if a given tile is a wall (including outer and inner walls)
+    // Check if a given tile is a wall (including outer and inner walls, and T-junctions)
     bool IsWall(int x, int y)
     {
         if (x < 0 || y < 0 || x >= levelMap.GetLength(1) || y >= levelMap.GetLength(0))
             return false; // Out of bounds
 
         int tile = levelMap[y, x];
-        return tile == 1 || tile == 2 || tile == 3 || tile == 4; // Wall tiles
+        // Now includes the T-junction as a wall type
+        return tile == 1 || tile == 2 || tile == 3 || tile == 4 || tile == 7;
     }
+
 
     // Check if a given tile is an outside wall or corner
     bool IsOutsideWall(int x, int y)
