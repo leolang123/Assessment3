@@ -36,59 +36,89 @@ public class LevelGenerator : MonoBehaviour
 
     void GenerateLevel()
     {
-        for (int y = 0; y < levelMap.GetLength(0); y++)
+        int height = levelMap.GetLength(0);
+        int width = levelMap.GetLength(1);
+
+        // Total dimensions will be double the original in both width and height
+        int totalWidth = width * 2;
+        int totalHeight = height * 2;
+
+        // Iterate over each position in the total dimensions
+        for (int y = 0; y < totalHeight; y++)
         {
-            for (int x = 0; x < levelMap.GetLength(1); x++)
+            for (int x = 0; x < totalWidth; x++)
             {
-                int tileType = levelMap[y, x];
-                Vector3 position = new Vector3(x, -y, 0); // Adjust coordinates as needed
-                Quaternion rotation = Quaternion.identity;
+                // Calculate the original map coordinates
+                int originalX = x % width;
+                int originalY = y % height;
 
-                GameObject prefabToInstantiate = null;
+                // Determine if we are in the mirrored section horizontally or vertically
+                bool isMirroredHorizontally = x >= width;
+                bool isMirroredVertically = y >= height;
 
-                switch (tileType)
+                // If mirrored horizontally, invert the x-coordinate over the vertical axis of the original section
+                if (isMirroredHorizontally)
                 {
-                    case 1: // Outside Corner
-                        prefabToInstantiate = outsideCornerPrefab;
-                        rotation = GetOutsideCornerRotation(x, y);
-                        break;
-
-                    case 2: // Outside Wall
-                        prefabToInstantiate = outsideWallPrefab;
-                        rotation = GetWallRotation(x, y);
-                        break;
-
-                    case 3: // Inside Corner
-                        prefabToInstantiate = insideCornerPrefab;
-                        rotation = GetInsideCornerRotation(x, y);
-                        break;
-
-                    case 4: // Inside Wall
-                        prefabToInstantiate = insideWallPrefab;
-                        rotation = GetWallRotation(x, y);
-                        break;
-
-                    case 5: // Standard Pellet
-                        prefabToInstantiate = standardPelletPrefab;
-                        break;
-
-                    case 6: // Power Pellet
-                        prefabToInstantiate = powerPelletPrefab;
-                        break;
-
-                    case 7: // T-Junction
-                        prefabToInstantiate = tJunctionPrefab;
-                        rotation = GetTJunctionRotation(x, y);
-                        break;
+                    originalX = width - 1 - originalX;
                 }
 
-                if (prefabToInstantiate != null)
+                // If mirrored vertically, invert the y-coordinate over the horizontal axis of the entire height
+                if (isMirroredVertically)
                 {
-                    Instantiate(prefabToInstantiate, position, rotation);
+                    originalY = height - 1 - originalY;
                 }
+
+                // Place the tile with the calculated original coordinates
+                PlaceTile(x, y, originalX, originalY);
             }
         }
     }
+
+    void PlaceTile(int x, int y, int originalX, int originalY)
+    {
+        int tileType = levelMap[originalY, originalX];
+        Vector3 position = new Vector3(x, -y, 0); // Adjust coordinates as needed
+        Quaternion rotation = Quaternion.identity;
+
+        GameObject prefabToInstantiate = null;
+
+        switch (tileType)
+        {
+            case 1:
+                prefabToInstantiate = outsideCornerPrefab;
+                rotation = GetOutsideCornerRotation(originalX, originalY);
+                break;
+            case 2:
+                prefabToInstantiate = outsideWallPrefab;
+                rotation = GetWallRotation(originalX, originalY);
+                break;
+            case 3:
+                prefabToInstantiate = insideCornerPrefab;
+                rotation = GetInsideCornerRotation(originalX, originalY);
+                break;
+            case 4:
+                prefabToInstantiate = insideWallPrefab;
+                rotation = GetWallRotation(originalX, originalY);
+                break;
+            case 5:
+                prefabToInstantiate = standardPelletPrefab;
+                break;
+            case 6:
+                prefabToInstantiate = powerPelletPrefab;
+                break;
+            case 7:
+                prefabToInstantiate = tJunctionPrefab;
+                rotation = GetTJunctionRotation(originalX, originalY);
+                break;
+        }
+
+        // Instantiate the prefab at the calculated position and rotation
+        if (prefabToInstantiate != null)
+        {
+            Instantiate(prefabToInstantiate, position, rotation);
+        }
+    }
+
 
     // Helper Methods for Rotation Logic
     Quaternion GetOutsideCornerRotation(int x, int y)
@@ -96,22 +126,19 @@ public class LevelGenerator : MonoBehaviour
         // Check neighbors to determine which corner type
         if (IsWall(x, y + 1) && IsWall(x + 1, y))
         {
-            Debug.Log("Top-left corner at (" + x + ", " + y + ")");
             return Quaternion.Euler(0, 0, 0); // Top-left corner
         }
         else if (IsWall(x, y + 1) && IsWall(x - 1, y))
         {
-            Debug.Log("Top-right corner at (" + x + ", " + y + ")");
             return Quaternion.Euler(0, 0, -90); // Top-right corner
         }
         else if (IsWall(x, y - 1) && IsWall(x + 1, y))
         {
-            Debug.Log("Bottom-left corner at (" + x + ", " + y + ")");
             return Quaternion.Euler(0, 0, 90); // Bottom-left corner
         }
         else if (IsWall(x, y - 1) && IsWall(x - 1, y))
         {
-            Debug.Log("Bottom-right corner at (" + x + ", " + y + ")");
+
             return Quaternion.Euler(0, 0, 180); // Bottom-right corner
         }
 
@@ -172,7 +199,6 @@ public class LevelGenerator : MonoBehaviour
         // Fallback rotation
         return Quaternion.identity;
     }
-
 
     Quaternion GetWallRotation(int x, int y)
     {
