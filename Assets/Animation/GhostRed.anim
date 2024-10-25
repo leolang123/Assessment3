@@ -8,7 +8,7 @@ AnimationClip:
   m_PrefabAsset: {fileID: 0}
   m_Name: GhostRed
   serializedVersion: 7
-  m_Legacy: 1
+  m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -22,11 +22,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 8719965121614041626, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
-    - time: 0.016666668
-      value: {fileID: -1267912965877497926, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
-    - time: 0.033333335
-      value: {fileID: -7805264735449056468, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
     - time: 0.05
+      value: {fileID: -1267912965877497926, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
+    - time: 0.083333336
+      value: {fileID: -7805264735449056468, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
+    - time: 0.13333334
       value: {fileID: 3105510017753157650, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
     attribute: m_Sprite
     path: 
@@ -39,14 +39,27 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings: []
-    pptrCurveMapping: []
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: 8719965121614041626, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
+    - {fileID: -1267912965877497926, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
+    - {fileID: -7805264735449056468, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
+    - {fileID: 3105510017753157650, guid: 8d6f31829c6ec96478d7f3bf7916a66e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.06666667
+    m_StopTime: 0.15
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

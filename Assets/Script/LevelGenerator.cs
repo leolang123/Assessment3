@@ -10,23 +10,39 @@ public class LevelGenerator : MonoBehaviour
     public GameObject powerPelletPrefab;
     public GameObject tJunctionPrefab;
 
+    // The new matrix directly provided for generating the map
     public int[,] levelMap = new int[,]
     {
-        {1,2,2,2,2,2,2,2,2,2,2,2,2,7},
-        {2,5,5,5,5,5,5,5,5,5,5,5,5,4},
-        {2,5,3,4,4,3,5,3,4,4,4,3,5,4},
-        {2,6,4,0,0,4,5,4,0,0,0,4,5,4},
-        {2,5,3,4,4,3,5,3,4,4,4,3,5,3},
-        {2,5,5,5,5,5,5,5,5,5,5,5,5,5},
-        {2,5,3,4,4,3,5,3,3,5,3,4,4,4},
-        {2,5,3,4,4,3,5,4,4,5,3,4,4,3},
-        {2,5,5,5,5,5,5,4,4,5,5,5,5,4},
-        {1,2,2,2,2,1,5,4,3,4,4,3,0,4},
-        {0,0,0,0,0,2,5,4,3,4,4,3,0,3},
-        {0,0,0,0,0,2,5,4,4,0,0,0,0,0},
-        {0,0,0,0,0,2,5,4,4,0,3,4,4,0},
-        {2,2,2,2,2,1,5,3,3,0,4,0,0,0},
-        {0,0,0,0,0,0,5,0,0,0,4,0,0,0},
+        {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 7, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
+        {2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2},
+        {2, 5, 3, 4, 4, 3, 5, 3, 4, 4, 4, 3, 5, 4, 4, 5, 3, 4, 4, 4, 3, 5, 3, 4, 4, 3, 5, 2},
+        {2, 6, 4, 0, 0, 4, 5, 4, 0, 0, 0, 4, 5, 4, 4, 5, 4, 0, 0, 0, 4, 5, 4, 0, 0, 4, 6, 2},
+        {2, 5, 3, 4, 4, 3, 5, 3, 4, 4, 4, 3, 5, 3, 3, 5, 3, 4, 4, 4, 3, 5, 3, 4, 4, 3, 5, 2},
+        {2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2},
+        {2, 5, 3, 4, 4, 3, 5, 3, 3, 5, 3, 4, 4, 4, 4, 4, 4, 3, 5, 3, 3, 5, 3, 4, 4, 3, 5, 2},
+        {2, 5, 3, 4, 4, 3, 5, 4, 4, 5, 3, 4, 4, 3, 3, 4, 4, 3, 5, 4, 4, 5, 3, 4, 4, 3, 5, 2},
+        {2, 5, 5, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, 2},
+        {1, 2, 2, 2, 2, 1, 5, 4, 3, 4, 4, 3, 0, 4, 4, 0, 3, 4, 4, 3, 4, 5, 1, 2, 2, 2, 2, 1},
+        {0, 0, 0, 0, 0, 2, 5, 4, 3, 4, 4, 3, 0, 3, 3, 0, 3, 4, 4, 3, 4, 5, 2, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 2, 5, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 5, 2, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 2, 5, 4, 4, 0, 3, 4, 4, 0, 0, 4, 4, 3, 0, 4, 4, 5, 2, 0, 0, 0, 0, 0},
+        {2, 2, 2, 2, 2, 1, 5, 3, 3, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 3, 3, 5, 1, 2, 2, 2, 2, 2},
+        {0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0},
+        {2, 2, 2, 2, 2, 1, 5, 3, 3, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 3, 3, 5, 1, 2, 2, 2, 2, 2},
+        {0, 0, 0, 0, 0, 2, 5, 4, 4, 0, 3, 4, 4, 0, 0, 4, 4, 3, 0, 4, 4, 5, 2, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 2, 5, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 5, 2, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 2, 5, 4, 3, 4, 4, 3, 0, 3, 3, 0, 3, 4, 4, 3, 4, 5, 2, 0, 0, 0, 0, 0},
+        {1, 2, 2, 2, 2, 1, 5, 4, 3, 4, 4, 3, 0, 4, 4, 0, 3, 4, 4, 3, 4, 5, 1, 2, 2, 2, 2, 1},
+        {2, 5, 5, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, 2},
+        {2, 5, 3, 4, 4, 3, 5, 4, 4, 5, 3, 4, 4, 3, 3, 4, 4, 3, 5, 4, 4, 5, 3, 4, 4, 3, 5, 2},
+        {2, 5, 3, 4, 4, 3, 5, 3, 3, 5, 3, 4, 4, 4, 4, 4, 4, 3, 5, 3, 3, 5, 3, 4, 4, 3, 5, 2},
+        {2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2},
+        {2, 5, 3, 4, 4, 3, 5, 3, 4, 4, 4, 3, 5, 3, 3, 5, 3, 4, 4, 4, 3, 5, 3, 4, 4, 3, 5, 2},
+        {2, 6, 4, 0, 0, 4, 5, 4, 0, 0, 0, 4, 5, 4, 4, 5, 4, 0, 0, 0, 4, 5, 4, 0, 0, 4, 6, 2},
+        {2, 5, 3, 4, 4, 3, 5, 3, 4, 4, 4, 3, 5, 4, 4, 5, 3, 4, 4, 4, 3, 5, 3, 4, 4, 3, 5, 2},
+        {2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 2},
+        {1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 7, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1},
     };
 
     void Start()
@@ -39,45 +55,21 @@ public class LevelGenerator : MonoBehaviour
         int height = levelMap.GetLength(0);
         int width = levelMap.GetLength(1);
 
-        // Total dimensions will be double the original in both width and height
-        int totalWidth = width * 2;
-        int totalHeight = height * 2;
-
-        // Iterate over each position in the total dimensions
-        for (int y = 0; y < totalHeight; y++)
+        // Iterate over each position in the levelMap matrix
+        for (int y = 0; y < height; y++)
         {
-            for (int x = 0; x < totalWidth; x++)
+            for (int x = 0; x < width; x++)
             {
-                // Calculate the original map coordinates
-                int originalX = x % width;
-                int originalY = y % height;
-
-                // Determine if we are in the mirrored section horizontally or vertically
-                bool isMirroredHorizontally = x >= width;
-                bool isMirroredVertically = y >= height;
-
-                // If mirrored horizontally, invert the x-coordinate over the vertical axis of the original section
-                if (isMirroredHorizontally)
-                {
-                    originalX = width - 1 - originalX;
-                }
-
-                // If mirrored vertically, invert the y-coordinate over the horizontal axis of the entire height
-                if (isMirroredVertically)
-                {
-                    originalY = height - 1 - originalY;
-                }
-
-                // Place the tile with the calculated original coordinates
-                PlaceTile(x, y, originalX, originalY);
+                // Place the tile based on the current x and y values
+                PlaceTile(x, y);
             }
         }
     }
 
-    void PlaceTile(int x, int y, int originalX, int originalY)
+    void PlaceTile(int x, int y)
     {
-        int tileType = levelMap[originalY, originalX];
-        Vector3 position = new Vector3(x, -y, 0); // Adjust coordinates as needed
+        int tileType = levelMap[y, x]; // Retrieve the tile type at this position
+        Vector3 position = new Vector3(x, -y, 0); // Adjust position for 2D grid
         Quaternion rotation = Quaternion.identity;
 
         GameObject prefabToInstantiate = null;
@@ -86,19 +78,19 @@ public class LevelGenerator : MonoBehaviour
         {
             case 1:
                 prefabToInstantiate = outsideCornerPrefab;
-                rotation = GetOutsideCornerRotation(originalX, originalY);
+                rotation = GetOutsideCornerRotation(x, y);
                 break;
             case 2:
                 prefabToInstantiate = outsideWallPrefab;
-                rotation = GetWallRotation(originalX, originalY);
+                rotation = GetWallRotation(x, y);
                 break;
             case 3:
                 prefabToInstantiate = insideCornerPrefab;
-                rotation = GetInsideCornerRotation(originalX, originalY);
+                rotation = GetInsideCornerRotation(x, y);
                 break;
             case 4:
                 prefabToInstantiate = insideWallPrefab;
-                rotation = GetWallRotation(originalX, originalY);
+                rotation = GetWallRotation(x, y);
                 break;
             case 5:
                 prefabToInstantiate = standardPelletPrefab;
@@ -108,7 +100,7 @@ public class LevelGenerator : MonoBehaviour
                 break;
             case 7:
                 prefabToInstantiate = tJunctionPrefab;
-                rotation = GetTJunctionRotation(originalX, originalY);
+                rotation = GetTJunctionRotation(x, y);
                 break;
         }
 
@@ -258,7 +250,6 @@ public class LevelGenerator : MonoBehaviour
         return Quaternion.identity;
     }
 
-    // Check if a given tile is a wall (including outer and inner walls)
     // Check if a given tile is a wall (including outer and inner walls, and T-junctions)
     bool IsWall(int x, int y)
     {
